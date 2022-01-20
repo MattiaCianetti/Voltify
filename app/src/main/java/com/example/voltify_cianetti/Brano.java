@@ -7,13 +7,13 @@ public class Brano
     private String titolo;
     private int durata;
     private String autore;
+    private String genere;
     private Date dataCreazione;
 
-    public Brano(String titolo, int durata, String autore, Date dataCreazione) {
+    public Brano(String titolo, String genere)
+    {
         this.titolo = titolo;
-        this.durata = durata;
-        this.autore = autore;
-        this.dataCreazione = dataCreazione;
+        this.genere = genere;
     }
 
     public String getTitolo(){
