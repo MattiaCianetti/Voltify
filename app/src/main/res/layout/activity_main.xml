@@ -14,7 +14,7 @@
         android:layout_marginEnd="159dp"
         android:layout_marginBottom="12dp"
         android:text="inserisci"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btnMostra"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
@@ -47,13 +47,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnMostra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="158dp"
         android:layout_marginEnd="165dp"
         android:layout_marginBottom="32dp"
-        android:text="Brani"
+        android:text="Mostra"
         app:layout_constraintBottom_toTopOf="@+id/spnGeneri"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

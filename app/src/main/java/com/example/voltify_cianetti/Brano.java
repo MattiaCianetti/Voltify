@@ -25,6 +25,7 @@ public class Brano
     public int getDurata(){
         return this.durata;
     }
+    public String getGenere() {return this.genere;}
     public Date getDataCreazione(){
         return this.dataCreazione;
     }
@@ -35,6 +36,7 @@ public class Brano
     public void setAutore(String autore){
         this.autore=autore;
     }
+
     public void setDataCreazione(Date dataCreazione) {
         this.dataCreazione = dataCreazione;
     }

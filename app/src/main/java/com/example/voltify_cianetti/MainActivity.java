@@ -2,6 +2,7 @@ package com.example.voltify_cianetti;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -11,8 +12,10 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
     Button btnInserisci;
+    Button btnMostra;
     EditText txtTitolo;
     String[] generi = {"Rap", "Pop", "Trap"};
     GestoreBrani gb;
@@ -24,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnInserisci = (Button) findViewById(R.id.btnInserisci);
+        Button btnInserisci = (Button) findViewById(R.id.btnInserisci);
+        Button btnMostra = (Button) findViewById(R.id.btnMostra);
         txtTitolo = (EditText) findViewById(R.id.txtTitolo);
         spnGenere = (Spinner) findViewById(R.id.spnGeneri) ;
 
@@ -33,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
         spnGenere.setAdapter(aaG);
         gb = new GestoreBrani();
 
-        btnInserisci.setOnClickListener(new View.OnClickListener() {
+        btnInserisci.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View view)
             {
@@ -42,5 +47,19 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        }
+
+        btnMostra.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                StringBuilder stringa = new StringBuilder();
+                stringa = gb.ListaBrani();
+                Intent i = new Intent(getApplicationContext(), MainActivity2.class);
+                i.putExtra("stringa", stringa.toString());
+                startActivity(i);
+            }
+        });
+
     }
+}

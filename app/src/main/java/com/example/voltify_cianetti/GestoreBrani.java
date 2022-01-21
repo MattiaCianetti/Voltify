@@ -1,5 +1,4 @@
 package com.example.voltify_cianetti;
-import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 
@@ -21,5 +20,15 @@ public class GestoreBrani
         listaBrani.add(br);
     }
 
+    public StringBuilder ListaBrani()
+    {
+        StringBuilder sbBrani= new StringBuilder();
+        for (Brano brC : listaBrani)
+        {
+            sbBrani.append(brC.getTitolo() + "-");
+            sbBrani.append(brC.getAutore() + "\n");
+        }
+        return sbBrani;
+    }
 
 }
