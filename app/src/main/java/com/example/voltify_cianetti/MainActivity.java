@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity
     String[] generi = {"Rap", "Pop", "Trap"};
     GestoreBrani gb;
     Spinner spnGenere;
+    final String tag = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -42,8 +44,10 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+                Log.d(tag, "Cliccato il button inserisci");
                 String genSelez = spnGenere.getSelectedItem().toString();
                 gb.addBrano(txtTitolo.getText().toString(), genSelez);
+                Log.d(tag, "Aggiunto il brano");
 
             }
         });
@@ -51,15 +55,23 @@ public class MainActivity extends AppCompatActivity
         btnMostra.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View v)
+            public void onClick(View view)
             {
+                Log.d(tag, "Cliccato il button mostra");
                 StringBuilder stringa = new StringBuilder();
                 stringa = gb.ListaBrani();
                 Intent i = new Intent(getApplicationContext(), MainActivity2.class);
                 i.putExtra("stringa", stringa.toString());
                 startActivity(i);
+                Log.d(tag, "Startata l'activity 2");
             }
         });
+    }
 
+
+    protected void onStart()
+    {
+        Log.d(tag, "Metodo onStart");
+        super.onStart();
     }
 }
